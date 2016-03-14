@@ -12,7 +12,7 @@ $(document).ready(function() {
     $input.val('');
 
     for (i = 1; i <= cap; i++) {
-      $numLoop.append('<div>' + pingPong(i) + '</div>');
+     $numLoop.append('<div>' + pingPong(i) + '</div>');
     }
 
   });
