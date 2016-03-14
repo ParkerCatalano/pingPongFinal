@@ -1,26 +1,35 @@
 $(document).ready(function() {
 
   var $numLoop = $('#numLoop');
+  var $input = $('input:first');
 
   $('#userInput').submit(function(event) {
 
     event.preventDefault();
+    $numLoop.empty();
 
-    var cap = $('input:first').val();
+    var cap = $input.val();
+    $input.val('');
 
     for (i = 1; i <= cap; i++) {
-      if (i % 15 === 0) {
-        $numLoop.append('<div>pingpong</div>');
-      }
-      else if(i % 3 === 0) {
-        $numLoop.append('<div>ping</div>');
-      }
-      else if (i % 5 === 0) {
-        $numLoop.append('<div>pong</div>');
-      }
-      else {
-        $numLoop.append('<div>'+i+'</div>');
-      }
+      $numLoop.append('<div>' + pingPong(i) + '</div>');
     }
+
   });
 });
+
+function pingPong(n) {
+  var result;
+
+  if (n % 15 === 0) {
+    result = 'pingpong';
+  } else if (n % 3 === 0) {
+    result = 'ping';
+  } else if (n % 5 === 0) {
+    result = 'pong';
+  } else {
+    result = n;
+  }
+
+  return result;
+}
